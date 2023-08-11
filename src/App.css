@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+
+.password-icon {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+
+  cursor: pointer;
+  
+}
+
