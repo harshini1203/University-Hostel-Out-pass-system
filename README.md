@@ -1,70 +1,90 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# User authentication system for outpass management system
 
-## Available Scripts
+This repository showcases a seamless login/signup system with both a user-friendly UI and a solid backend connection.
 
-In the project directory, you can run:
+It has an intuitive interface while benefiting from essential features like one-factor authentication, password management (reset and change), session/cookie handling, and stringent password strength checks for authenticating students and wardens before redirecting to their respective dashboards. 
 
-### `npm start`
+It is implemented using ReactJS, HTML and CSS for the frontend and NodeJS with ExpressJS, MySQL database for backend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screenshots
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Login / Sign up home page
+![Login](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/login%20page.png?raw=true)
 
-### `npm run eject`
+Users must sign up, verify their accounts using official university emails, and create strong passwords. If the password is weak, a toast alert is shown. Only after these steps can users log in.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Sign Up](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/signup%20valid%20email.png?raw=true
+)
+![Sign Up](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/signup%20valid%20password.png?raw=true
+)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Upon successful signup, a verification email is sent to the respective email id to enable one factor authentication. This project uses the sendGrid mailer API to implement the same.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Sign Up](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/signup%20check%20email.png?raw=true
+)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Verification of user
 
-## Learn More
+Verification email is sent to user :
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Verification email](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/verify%20email.png?raw=true
+)
+![Verification email](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/verification%20link.png?raw=true
+)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Upon clicking the link, the user is verified which will be updated in the database.
 
-### Code Splitting
+![Verification email](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/verification%20success.png?raw=true
+)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Once the user logs in, they are directed to the their dashboards.
 
-### Analyzing the Bundle Size
+ Here I have created a dummy dashboard to showcase the functionality of my login page , the actual page will be integrated in later stages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Dashboard](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/dummy%20dashboard.png?raw=true
+)
 
-### Making a Progressive Web App
+Successful login creates a 24-hour session. Inactive session or logout requires re-authentication to access the dashboard, enhancing security.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Forgot password
 
-### Advanced Configuration
+"Clicking 'Forgot Password?' redirects users to a page to enter their usernames. Afterward, a unique link with a verification token is provided for password reset to their respective email id.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The following screenshots show the workflow of this functionality : 
 
-### Deployment
+![Reset page username enter](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/change%20password.png?raw=true
+)
+![Reset email sent](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/password%20reset.png?raw=true
+)
+![Reset email](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/reset%20mail.png?raw=true
+)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![Reset link](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/reset%20link.png?raw=true
+)
 
-### `npm run build` fails to minify
+![Password reset](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/password%20reset%20page.png?raw=true
+)
+![Reset successful](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/password%20reset%20successful.png?raw=true
+)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This is a screenshot of the record of the user in MySQL database, where we can see the password is hashed and updated.
+
+![data updated successfully](https://github.com/harshini1203/University-Hostel-Out-pass-system/blob/master/ss/data%20updated%20successfully.png?raw=true
+)
+
+
+
+
+
+
+
+
+
+
